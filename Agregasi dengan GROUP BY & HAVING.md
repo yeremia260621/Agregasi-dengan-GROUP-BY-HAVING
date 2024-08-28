@@ -8,26 +8,27 @@ Langkah-langkah pembuatan database:
 
 2. Buat database dengan nama company_namaku dalam praktek kali ini saya membuatnya dengan nama company_condrado
 ```sql
-CREATE DATABASE company_your;
+CREATE DATABASE kompany_your;
 ```
 penjelasan:
 - `CREATE DATABASE`: Ini adalah perintah SQL yang digunakan untuk membuat database baru.
-- `company_your`: Ini adalah nama dari database yang akan dibuat.
+- `kompany_your`: Ini adalah nama dari database yang akan dibuat.
 
 untuk melihat hasil dari database yang dibuat bisa dengan menggunakan perintah `show databases;`
 
-![](gmbr/2.png)
+![](gmbr/26.png)
 
 3. Jika sudah memastikan bahwa database berhasil dibuat, sekarang adalah menggunakan database tersebut untuk dimasukan tabel didalmnnya, menggunakan perintah `use` lalu diikuti nama database yang akan digunakan.
 ```sql
-USE company_your;
+USE kompany_your;
 ```
 Penjelasan:
 - `USE`: Ini adalah perintah SQL yang digunakan untuk memilih database yang akan digunakan.
-- `company_condrado`: Ini adalah nama dari database yang akan dipilih.
+- `kompany_your`: Ini adalah nama dari database yang akan dipilih.
 
 Jika berhasil maka hasilnya akan sebagai berikut:
-![](Assets/tambahan1.jpg)
+
+![](gmbr/2.png)
 
 4. Sekarang kita akan membuat tabel di dalam database `company_condrado` ini dengan menggunakan perintah `create table` diikuti oleh nama tabel yang ingin kita buat
 ```sql
@@ -56,10 +57,12 @@ Penjelasan:
 - `NoCab VARCHAR(10) NOT NULL`: Kolom `NoCab` bertipe data `VARCHAR` dengan panjang maksimum 10 karakter dan tidak boleh kosong (NOT NULL).
 
 Hasil:
-![](Assets/gambar2.jpg)
+
+![](gmbr/5.png)
 
 5. Untuk melihat tabel yang telah dibuat sudah terdaftar didalam database, bisa gunakan perintah `show tables`. Jika tabel yang dibuat sudah berhasil maka akan terdata di database tersebut.
-![](Assets/tambahan2.jpg)
+   
+![](gmbr/4.png)
 
 6. Setelah memastikan bahwa tabel berhasil dibuat maka sekarang kita akan melihat struktur dari tabel yang sudah kita buat menggunakan perintah `desc table` kemudian diikuti oleh nama tabel yang tadi dibuat.
 ```sql
@@ -69,7 +72,9 @@ Penjelasan
 - `DESC`: Singkatan dari `DESCRIBE`, perintah ini digunakan untuk mendapatkan informasi tentang struktur sebuah tabel dalam database.
 - `pegawai`: Nama tabel yang ingin Kita lihat strukturnya.
 Hasil:
-![](Assets/gambar5.jpg)
+
+![](gmbr/24.png)
+
 - Kolom `NIP` menggunaan tipe data `int` dan `primary key` dikarenakan kolom ini merupakan data unique, dimana data inilah yang membedakan antara satu pegawai dengan pegawai lainnya, dan alasan digunakannya `int` sebagai tipe datanya adalah karena isi dari datanya nantinya berupa angka. Karena kolom ini adalah `primary` maka kolom ini otomatis `not null`
 - Kolom `NDep` merupakan kolom untuk mengisi nama depan dari pegawai. Karena isi dari kolom ini adalah karakter, maka kolom ini menggunakan tipe data `varchar`. Kolom ini juga menggunakan constrain `NOT NULL` agar mencegah kolom kosong karean pegawai diwajibkan memasukan minimal nama depan mereka.
 - Kolom `NBlk` merupakan kolom untuk menampung data nama belakang dari pegawai. Karena isi dari kolom ini nantinya adalah karakter, maka kolom ini menggunakan tipe data `varchar`. Kolom ini tidak diatur dengan constrain `not null` karena tiap pegawai tidak semua memiliki nama belakang sehingga data kolom bisa kosong.
@@ -81,7 +86,6 @@ Hasil:
 - Kolom `NoCab` merupakan kolom untuk memasukan nomor cabang. Karena isi datanya merupakan gabungan antara huruf dan angka, maka digunakanlah tipe data `varchar`. Kolom tidak boleh kosong, maka digunakanlah constrain `not null`.
 
 7. Setelah memastikan struktur tabel sudah tepat, saatnya memasukan data pada tabel yang telah dibuat. Untuk datanya menggunakan refrensi sebagai berikut:
-![](Assets/tambahan3.jpg)
 
 Untuk merealisaskannya kita akan memasukannya dengan perintah `INSERT INTO` kemudiaan diikuti dengan nama tabel dan kemudiaan perintah `VALUES` diikuti oleh data-datanya.
 ```sql
@@ -112,7 +116,8 @@ Penjelasan:
 - Setiap baris berikutnya dipisahkan oleh tanda koma `,`, dan memiliki format yang sama dengan baris pertama, dengan nilai-nilai yang sesuai untuk setiap kolom.
 
 Hasil:
-![](Assets/gambar3.jpg)
+
+![](gmbr/6.png)
 
 8. Sekarang setelah memasukan data didalam tabel, saatnya untuk melihat tabel dengan data yang sudah dimasukkan didalamnya dengan perintah `SELECT * FROM` kemudian diikuti oleh nama tabelnya. 
 ```sql
@@ -125,7 +130,8 @@ Penjelasan:
 - `pegawai`: Nama tabel dari mana data akan diambil.
 
 Hasil:
-![](Assets/gambar4.jpg)
+
+![](gmbr/6.png)
 
 # Menyeleksi Data Berdasarkan Nilai
 Untuk menampilkan data atau menyeleksi data berdasarkan nilai tertentu kita dapat mennggunakan perintah `select count` dan untuk membuat visual tabel baru gunakan perintah `as nama_tampilan_tabel`. 
@@ -136,6 +142,7 @@ SELECT COUNT(NIP) AS JumlahPegawai, COUNT(jabatan) AS jumlahpegawai
 from pegawai;
 ```
 Hasil:
+
 ![](Assets/gambar6.jpg)
 
 Penjelasan:
@@ -156,7 +163,8 @@ FROM pegawai
 WHERE NoCab = 'C102';
 ```
 Hasil:
-![](Assets/gambar7.jpg)
+
+![](gmbr/8.png)
 
 Penjelasan:
 - **`SELECT COUNT(NIP) AS JumlahPegawai`**:
@@ -178,7 +186,8 @@ FROM pegawai
 GROUP BY NOCab;
 ```
 Hasil:
-![](Assets/gambar8.jpg)
+
+![](gmbr/9.png)
 
 Penjelasan:
 - **`SELECT NoCab, COUNT(NIP) AS Jumlah_Pegawai`**:
@@ -202,7 +211,8 @@ FROM pegawai
 GROUP BY NoCab HAVING COUNT(NIP) >= 3;
 ```
 Hasil:
-![](Assets/gambar9.jpg)
+
+![](gmbr/10.png)
 
 Penjelasan:
 - **`SELECT NoCab, COUNT(NIP) AS Jumlah_Pegawai`**:
@@ -227,7 +237,8 @@ SELECT SUM(Gaji) AS Total_Gaji
 FROM pegawai;
 ```
 Hasil:
-![](Assets/gambar10.jpg)
+
+![](gmbr/11.png)
 
 Penjelasan:
 - **`SELECT SUM(Gaji) AS Total_Gaji`**:
@@ -246,7 +257,8 @@ FROM pegawai
 WHERE jabatan = 'Manajer';
 ```
 Hasil:
-![](Assets/gambar11.jpg)
+
+![](gmbr/12.png)
 
 Penjelasan:
 - **`SELECT SUM(Gaji) AS Gaji_Manajer`**:
@@ -268,7 +280,8 @@ FROM pegawai
 GROUP BY NoCab
 ```
 Hasil:
-![](Assets/gambar12.jpg)
+
+![](gmbr/13.png)
 
 Penjelasan:
 1. **`SELECT NoCab, SUM(Gaji) AS TotalGaji`**:
@@ -290,7 +303,8 @@ FROM pegawai
 GROUP BY NoCab HAVING SUM(Gaji) >= 8000000;
 ```
 Hasil:
-![](Assets/gambar13.jpg)
+
+![](gmbr/14.png)
 
 Penjelasan:
 - **`SELECT NoCab, SUM(Gaji) AS TotalGaji`**:
@@ -315,7 +329,8 @@ SELECT AVG(Gaji) AS Rata_rata
 FROM pegawai;
 ```
 Hasil:
-![](Assets/gambar14.jpg)
+
+![](gmbr/15.png)
 
 Penjelasan:
 - **`SELECT AVG(Gaji) AS Rata_rata`**:
@@ -334,7 +349,8 @@ FROM pegawai
 WHERE jabatan = 'Manajer';
 ```
 Hasil:
-![](Assets/gambar15.jpg)
+
+![](gmbr/16.png)
 
 Penjelasan:
 - **`SELECT AVG(Gaji) AS Rata_rataMGr`**:
@@ -356,7 +372,8 @@ FROM pegawai
 GROUP BY NoCAb
 ```
 Hasil:
-![](Assets/gambar16.jpg)
+
+![](gmbr/17.png)
 
 Penjelasan:
 - **`SELECT NoCab, AVG(Gaji) AS RataGaji`**:
@@ -378,7 +395,8 @@ FROM pegawai
 GROUP BY NoCab HAVING NoCab = 'C101' OR NoCab = 'C102'; 
 ```
 Hasil:
-![](Assets/gambar17.jpg)
+
+![](gmbr/18.png)
 
 Penjelasan:
 - **`SELECT NoCab, AVG(Gaji) AS RataGaji`**:
@@ -403,7 +421,8 @@ SELECT MAX(Gaji) AS GajiTerbesar, MIN(Gaji) AS GajiTerkecil
 FROM pegawai;
 ```
 Hasil:
-![](Assets/gambar18.jpg)
+
+![](gmbr/19.png)
 
 Penjelasan:
 - **`SELECT MAX(Gaji) AS GajiTerbesar, MIN(Gaji) AS GajiTerkecil`**:
@@ -424,7 +443,8 @@ FROM pegawai
 WHERE jabatan = 'Manajer';
 ```
 Hasil:
-![](Assets/gambar19.jpg)
+
+![](gmbr/20.png)
 
 Penjelasan:
 - **`SELECT MAX(Gaji) AS GajiTerbesar, MIN(Gaji) AS GajiTerkecil`**:
@@ -448,7 +468,8 @@ FROM pegawai
 GROUP BY NoCab;
 ```
 Hasil:
-![](Assets/gambar20.jpg)
+
+![](gmbr/21.png)
 
 Penjelasan:
 - **`SELECT NoCab, MAX(Gaji) AS GajiTerbesar, MIN(Gaji) AS GajiTerkecil`**:
@@ -472,7 +493,8 @@ FROM pegawai
 GROUP BY NoCab HAVING COUNT(NIP) >=3;
 ```
 Hasil:
-![](Assets/gambar21.jpg)
+
+![](gmbr/22.png)
 
 Penjelasan:
 - **`SELECT NoCab, MAX(Gaji) AS GajiTerbesar, MIN(Gaji) AS GajiTerkecil`**:
@@ -499,7 +521,8 @@ AVG(Gaji) AS RataGaji, MAX(Gaji) AS GajiMaks, MIN(Gaji) AS GajiMin
 FROM pegawai
 ```
 Hasil:
-![](Assets/gambar22.jpg)
+
+![](gmbr/23.png)
 
 Penjelasan:
 - **`SELECT`**:
@@ -533,6 +556,7 @@ WHERE jabatan = `Staff` OR jabatan = 'Sales'
 GROUP BY NoCab HAVING SUM(Gaji) <= 26000000
 ```
 Hasil:
+
 ![](Assets/gambar23.jpg)
 
 Penjelasan:
