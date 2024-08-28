@@ -30,7 +30,7 @@ Jika berhasil maka hasilnya akan sebagai berikut:
 
 ![](gmbr/2.png)
 
-4. Sekarang kita akan membuat tabel di dalam database `company_condrado` ini dengan menggunakan perintah `create table` diikuti oleh nama tabel yang ingin kita buat
+4. Sekarang kita akan membuat tabel di dalam database `kompany_your` ini dengan menggunakan perintah `create table` diikuti oleh nama tabel yang ingin kita buat
 ```sql
 CREATE TABLE pegawai (
     NIP INT PRIMARY KEY,
