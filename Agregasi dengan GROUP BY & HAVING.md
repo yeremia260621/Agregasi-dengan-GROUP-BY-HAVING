@@ -3,7 +3,8 @@ Praktek kali ini adalah membuat sebuah database perusahaan dengan tabel pegawai 
 
 Langkah-langkah pembuatan database:
 1. Ketik `mysql -u root -p` dengan demikian kita sudah masuk ke dalam server lokal kita
-![](Assets/gambar0.jpg)
+
+![](gmbr/1.png)
 
 2. Buat database dengan nama company_namaku dalam praktek kali ini saya membuatnya dengan nama company_condrado
 ```sql
@@ -14,7 +15,8 @@ penjelasan:
 - `company_your`: Ini adalah nama dari database yang akan dibuat.
 
 untuk melihat hasil dari database yang dibuat bisa dengan menggunakan perintah `show databases;`
-![](Assets/gambar1.jpg)
+
+![](gmbr/2.png)
 
 3. Jika sudah memastikan bahwa database berhasil dibuat, sekarang adalah menggunakan database tersebut untuk dimasukan tabel didalmnnya, menggunakan perintah `use` lalu diikuti nama database yang akan digunakan.
 ```sql
